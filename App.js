@@ -1,15 +1,63 @@
 import React, { useRef, useState } from 'react';
-import { StyleSheet, Text, SafeAreaView, ScrollView, StatusBar, Animated, View, Button, Easing } from 'react-native';
+import { StyleSheet, Text, SafeAreaView, ScrollView, StatusBar, Animated, View, Button, Easing, TouchableOpacity } from 'react-native';
 import { Dimensions } from 'react-native';
 import CardForm, { next, prev } from './CardForm';
+
+import SearchIcon from './assets/icons/SearchIcon';
 
 const window_width = Dimensions.get('window').width;
 const window_height = Dimensions.get('window').height;
 
 const content = [
-  <View style={{width: "40%", height: "8%", backgroundColor: 'green'}} key={1}>
-    <Button style={{backgroundColor: 'green',width: '100px', height: '100px'}} title="Next" onPress={next} />
+
+
+  <View style={{ flex: 1, padding: 15 }} >
+
+    <View style={{ flex: 1, borderRadius: 30, borderColor: '#e0e0e0', borderWidth: 20, backgroundColor: "#e0e0e0" }}>
+
+      {/* Title Start */}
+      <View>
+        <Text style={{ fontWeight: '700', fontSize: 42 }}>Where</Text>
+      </View>
+      {/* Title End */}
+
+      {/* Search Bar Start */}
+      <View style={{ flex: 1, backgroundColor: '#e8e8e8', marginTop: '5%', borderRadius: 20, flexDirection: 'row'}}>
+        <View style={{ flex: 1, marginLeft: '0%'}}>
+
+          <SearchIcon/>
+
+        </View>
+        <View style={{ flex: 5, justifyContent: 'center', padding: "2%", marginRight: 80}}>
+          <Text style={{fontSize: 18, color: 'rgba(0, 0, 0, 0.6)'}}>Search</Text>
+        </View>
+      </View>
+      {/* Search Bar End */}
+
+      {/* Map Start */}
+      <View style={{ flex: 6, backgroundColor: 'red', marginTop: '5%' }} />
+      {/* Map Start */}
+
+      {/* Map Start */}
+      <View style={{ flex: 2, backgroundColor: 'green', marginTop: '5%' }} />
+      {/* Map Start */}
+
+      {/* Next Button Start*/}
+      <View style={{ flex: 1, marginTop: '5%', flexDirection: 'row' }} >
+        <View style={{ flex: 3 }} />
+        <TouchableOpacity activeOpacity={0.5} style={{ backgroundColor: '#2a7e4d', flex: 2, margin: 'auto', alignItems: 'center', flexDirection: 'column', borderRadius: 20 }}>
+
+          <View style={{ flex: 1, justifyContent: 'center' }}>
+            <Text style={{ color: 'white', fontSize: 18, fontWeight: '500' }}>Next</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
+      {/* Next Button End */}
+
+    </View>
+
   </View>,
+
   <View key={2}>
     <Button title="Next" onPress={next} />
     <Button title="Prev" onPress={prev} />
@@ -26,18 +74,16 @@ const content = [
 const App = () => {
 
   return (
-    <View style={styles.root}>
-      <SafeAreaView style={styles.container}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#d9d9d9' }}>
 
-        <CardForm>
+      <CardForm>
 
-          {content}
+        {content}
 
-        </CardForm>
+      </CardForm>
 
-      </SafeAreaView>
 
-    </View>
+    </SafeAreaView>
 
   );
 };
@@ -45,10 +91,6 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     height: '100%',
-    width: '300%',
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
   },
   fadingContainer: {
     width: '90%',

@@ -58,19 +58,26 @@ const CardForm = (props) => {
     fadeAnim = useRef(new Animated.Value(0)).current;
 
     return (
-        <>
-            <Animated.ScrollView style={[
+
+        /*
+        <SafeAreaView style={{backgroundColor: 'red', flex: 1}}>
+            
+        </SafeAreaView>
+        */
+
+        
+        <View style={{flex: 1}}>
+            <Animated.View style={[
                 styles.fadingContainer,
                 {
                     right: fadeAnim,
+                    flex: 1,
                 },
             ]}>
 
-                <View style={{width: window_width, height: window_height}}>
                     {props.children[0]}
-                </View>
 
-            </Animated.ScrollView>
+            </Animated.View>
 
 
             <Animated.ScrollView style={[
@@ -112,7 +119,8 @@ const CardForm = (props) => {
             </Animated.ScrollView>
 
 
-        </>
+        </View>
+        
     );
 };
 
@@ -126,11 +134,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
     },
     fadingContainer: {
-        width: '100%',
-        height: '100%',
-        backgroundColor: 'powderblue',
-        alignSelf: 'center',
-        //position: 'absolute',
+        backgroundColor: '#d9d9d9',
     },
     fadingContainer2: {
         width: '100%',
