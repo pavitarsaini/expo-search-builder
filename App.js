@@ -4,6 +4,7 @@ import { Dimensions } from 'react-native';
 import CardForm, { next, prev } from './CardForm';
 
 import SearchIcon from './assets/icons/SearchIcon';
+import CanadaMap from './assets/maps/CanadaMap';
 
 const window_width = Dimensions.get('window').width;
 const window_height = Dimensions.get('window').height;
@@ -11,7 +12,7 @@ const window_height = Dimensions.get('window').height;
 const content = [
 
 
-  <View style={{ flex: 1, padding: 15 }} >
+  <View key={1} style={{ flex: 1, padding: 15 }} >
 
     <View style={{ flex: 1, borderRadius: 30, borderColor: '#e0e0e0', borderWidth: 20, backgroundColor: "#e0e0e0" }}>
 
@@ -22,20 +23,24 @@ const content = [
       {/* Title End */}
 
       {/* Search Bar Start */}
-      <View style={{ flex: 1, backgroundColor: '#e8e8e8', marginTop: '5%', borderRadius: 20, flexDirection: 'row'}}>
-        <View style={{ flex: 1, marginLeft: '0%'}}>
+      <View style={{ flex: 1, backgroundColor: '#e8e8e8', marginTop: '5%', borderRadius: 20, flexDirection: 'row' }}>
+        <View style={{ flex: 1, marginLeft: '0%' }}>
 
-          <SearchIcon/>
+          <SearchIcon />
 
         </View>
-        <View style={{ flex: 5, justifyContent: 'center', padding: "2%", marginRight: 80}}>
-          <Text style={{fontSize: 18, color: 'rgba(0, 0, 0, 0.6)'}}>Search</Text>
+        <View style={{ flex: 5, justifyContent: 'center', padding: "2%", marginRight: 80 }}>
+          <Text style={{ fontSize: 18, color: 'rgba(0, 0, 0, 0.6)' }}>Search</Text>
         </View>
       </View>
       {/* Search Bar End */}
 
       {/* Map Start */}
-      <View style={{ flex: 6, backgroundColor: 'red', marginTop: '5%' }} />
+      <View style={{ flex: 6, backgroundColor: '#e8e8e8', marginTop: '5%', borderRadius: 20 }}>
+        <View style={{ flex: 1, marginLeft: '0%', overflow: 'hidden'}}>
+          <CanadaMap color='#d6d6d6'/>
+        </View>
+      </View>
       {/* Map Start */}
 
       {/* Map Start */}
@@ -45,7 +50,7 @@ const content = [
       {/* Next Button Start*/}
       <View style={{ flex: 1, marginTop: '5%', flexDirection: 'row' }} >
         <View style={{ flex: 3 }} />
-        <TouchableOpacity activeOpacity={0.5} style={{ backgroundColor: '#2a7e4d', flex: 2, margin: 'auto', alignItems: 'center', flexDirection: 'column', borderRadius: 20 }}>
+        <TouchableOpacity onPress={next} activeOpacity={0.5} style={{ backgroundColor: '#2a7e4d', flex: 2, margin: 'auto', alignItems: 'center', flexDirection: 'column', borderRadius: 20 }}>
 
           <View style={{ flex: 1, justifyContent: 'center' }}>
             <Text style={{ color: 'white', fontSize: 18, fontWeight: '500' }}>Next</Text>

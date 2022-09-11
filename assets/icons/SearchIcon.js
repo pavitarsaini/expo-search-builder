@@ -8,4 +8,4 @@ const SearchIcon = (props) => (
 </Svg>
 )
 
-export default SearchIcon
+export default SearchIcon 
